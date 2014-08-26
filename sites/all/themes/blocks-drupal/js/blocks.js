@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
 	    $('.has-dropdown ul').css('display','block');
 	  }, 
 	  function () {
-	    $('.has-dropdown ul').css('display','none');
+	   // $('.has-dropdown ul').css('display','none');
 	  }
   );
   
