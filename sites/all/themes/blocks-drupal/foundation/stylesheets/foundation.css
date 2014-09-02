@@ -865,7 +865,7 @@ div.progress.round .meter { -webkit-border-radius: 1000px; -moz-border-radius: 1
 .top-bar ul > li.has-dropdown .dropdown li { background: #222222; line-height: 1; min-width: 100%; padding-bottom: 5px; }
 .top-bar ul > li.has-dropdown .dropdown li a { color: white; font-weight: normal; height: 100%; line-height: 1; padding: 5px 17px 5px 15px; white-space: nowrap; }
 .has-dropdown .has-dropdown li {  min-width: 240px !important;}
-
+.has-dropdown .has-dropdown ul{ margin-top: 7px !important;}
 .top-bar ul > li.has-dropdown .dropdown li a:after { border: none; }
 .top-bar ul > li.has-dropdown .dropdown li a:hover { background: #3c3c3c; }
 .top-bar ul > li.has-dropdown .dropdown li label { color: #6f6f6f; font-size: 10px; font-weight: bold; margin: 0; padding-left: 15px; text-transform: uppercase; }
