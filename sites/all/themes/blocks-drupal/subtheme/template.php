@@ -66,7 +66,7 @@ function redcrackle_process_page(&$variables) {
   if( !empty($tid) && arg(1) == 'term'){  
      $term = taxonomy_term_load($tid);
 	 // Unset the default content
-	unset($variables['page']['content']);	
+	//unset($variables['page']['content']);	
 	taxonomy_term_load($tid);
         $field_image = field_get_items('taxonomy_term', $term, 'field_image');
         $uri = (!empty($field_image[0]['uri'])) ? $field_image[0]['uri'] : '';
