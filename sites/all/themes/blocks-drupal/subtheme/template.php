@@ -43,6 +43,13 @@ function redcrackle_preprocess_page(&$vars, $hook) {
  */
 function redcrackle_preprocess_node(&$variables) {
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__'.strtolower($variables['title']);
+  if ($variables['type'] == 'blog') {
+    $author = user_load($variables['uid']);
+    $author_name = field_get_items('user', $author, 'field_name');
+    $author_name = $author_name[0]['value'];
+    $author_name = l($author_name, 'blog/' . $author->uid);
+    $variables['author_name'] = $author_name;
+  }
 }
 
 
@@ -401,4 +408,26 @@ function redcrackle_user_css() {
   echo "</style>";
   echo "<!-- End user defined CSS -->";	
 }
-?>
+
+/**
+ * views_plugin_row_node_rss adds
+ * all site namespaces to the feed incorrectly.
+ *
+ * Up to (at least) "7.x-3.3" 2012-Feb-22
+ *
+ * I need to repair it on the way out as it's rendering views_view_row_rss
+ * HOOK_preprocess_views_view_row_rss
+ *
+ * This gets fixed in http://drupal.org/node/1418890#comment-5691200
+ **/
+function HOOK_preprocess_views_view_row_rss(&$element) {
+  // The problem is in the view->style_plugin->namespaces
+  $namespaces = &$element['view']->style_plugin->namespaces;
+  foreach ($namespaces as $prefix => $uri) {
+    if (! strstr($prefix, ':')) {
+      // Need to force xmlns onto the front of the prefix.
+      unset($namespaces[$prefix]);
+      $namespaces['xmlns:' . $prefix] = $uri;
+    }
+  }
+}

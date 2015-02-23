@@ -23,7 +23,7 @@ if ($items = field_get_items('node', $node, 'field_image')) {
     
   <?php if ($display_submitted): ?>
     <ul class="meta">
-      <li><i class="icon-user"></i> by <?php print $name; ?></li>
+      <li><i class="icon-user"></i> by <?php $author = !empty($author_name) ? $author_name : ''; print render($author); ?></li>
       <li><i class="icon-calendar"></i> <?php print format_date($node->created, 'custom', 'M d, Y'); ?></li>
       <li><i class="icon-comment"></i> <a href="<?php print $node_url;?>/#comments"><?php print $comment_count; ?> comments</a></li>
     </ul>
