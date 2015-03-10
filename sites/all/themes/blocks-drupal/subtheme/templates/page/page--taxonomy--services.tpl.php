@@ -135,8 +135,8 @@
 	      <?php endif; ?>
 		  <!--  To show the image and the description from term page -->
 	     	  <?php //if (!empty($image_url)) { print render($image_url); } ?>
-			 <?php //print render($description); //content displaying twice issue ?>
-	     	<?php print render($page['content']);  ?>
+			 <?php print render($description);  ?>
+	     	<?php //print render($page['content']); // Restricting the blog posts are displaying with the content ?>
 			<?php 
 			
 							//print views_embed_view('relevant_case_studies','block');
